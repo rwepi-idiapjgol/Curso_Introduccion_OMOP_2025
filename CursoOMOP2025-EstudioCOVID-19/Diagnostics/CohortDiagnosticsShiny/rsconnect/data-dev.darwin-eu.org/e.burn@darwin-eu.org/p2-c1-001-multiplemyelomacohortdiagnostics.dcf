@@ -1,0 +1,13 @@
+name: P2-C1-006-SLE-CohortDiagnostics
+title: P2-C1-006-SLE-CohortDiagnostics
+username: e.burn@darwin-eu.org
+account: e.burn@darwin-eu.org
+server: data-dev.darwin-eu.org
+hostUrl: https://data-dev.darwin-eu.org/__api__
+appId: 26
+bundleId: 98
+url: https://data-dev.darwin-eu.org/content/b1886f72-949c-40df-b47c-1d99d88c6d97/
+when: 1691100278.36388
+lastSyncTime: 1691100278.36389
+asMultiple: FALSE
+asStatic: FALSE

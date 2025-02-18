@@ -1,0 +1,12 @@
+name: CohortDiagnosticsSLE
+title: CohortDiagnosticsSLE
+username: rwepi-idiapjgol
+account: rwepi-idiapjgol
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 9791977
+bundleId: 8032217
+url: https://rwepi-idiapjgol.shinyapps.io/CohortDiagnosticsSLE/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
