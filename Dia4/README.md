@@ -6,17 +6,15 @@ Descargáis esta carpeta en formato .zip a vuestro ordenador y guardadla al dire
 ***Es muy importante que NO MODIFIQUÉIS NI La ESTRUCTURA NI LOS NOMBRES DE LAS CARPETAS y que sigáis las instrucciones que os daremos.***
 
 Resultados CohortDiagnostics:
-https://braventos.shinyapps.io/CohortDiagnostics_CursoOMOP/
 
-## Dia 2 (9 de Abril 2024)
-* 9:00 - 9:15h – Repaso del día anterior
-* 9:15 - 9:45h - Phenotyping: Herramientas OMOP para definir problemas de salud II
-* 9:45 - 10:15h - Caracteritzación de pacientes
-* 10:15 - 11:15h - *Práctica* - Caracteritzación de pacientes
-* 11:15 - 11.45h - Pausa (desayuno)
-* 11:45 - 12.15h - *Práctica* - Caracteritzación de pacientes
-* 12:15 - 13:00h - Cálculo de incidencia y prevalencia
+Resultados Estudio: 
+
+## Dia 4 (13 de Marzo 2025)
+* 9:00 - 9:15h - Repaso del día anterior
+* 9:15 - 10:15h - Introducción a diseños de estudios con datos de la vida real - Self controled case series, Cohorts, Target Trial Emulation
+* 10:15 - 10:45h – Importancia de RWD para guiar esfuerzos en el ámbito regulador: Ejemplo de DARWIN-EU
+* 10:45 - 11:15h - Pausa (desayuno)
+* 11:15 - 12h - Rol de Inteligencia Artificial en estudios con datos de la vida real
+* 12:00 -12:30- Quiero trabajar con datos OMOP: ¿Por dónde empiezo?
+* 12:30 - 13:00h - Cierre y feedback
 * 13:00 - 14:00h - Pausa (comida)
-* 14:00 - 15:30 h - *Práctica* - Cálculo de incidencia y prevalencia
-* 15:30 - 16:15h – Análisis de supervivencia
-* 16:15 - 17:00h – *Práctica* - Análisis de supervivencia
