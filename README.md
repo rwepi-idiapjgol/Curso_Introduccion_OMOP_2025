@@ -1,13 +1,13 @@
 # Iniciación práctica al análisis de datos OMOP
 
-Lugar: Institut Català de la Salut (ICS) - Sala Biblioteca Gran Via Corts Catalanes, 587
+Lugar: Recinto modernista de Sant Pau, oficinas IOMED
 
 Contacto:
 * Talita Duarte - tduarte@idiapjgol.org
-* Berta Raventós - braventos@idiapjgol.org
-* Núria Mercadé - nuria.mercadebesora@ndorms.ox.ac.uk 
 * Anna Palomar - apalomar@idiapjgol.org
 * Irene López - ilopez@idiapjgol.org
+* Elena Roel - eroel@idiapjgol.org
+* Agustina Giuliodori - agiuliodori.org
 * Andrea Pistillo - apistillo@idiapjgol.org
 
 ## DIA 1
