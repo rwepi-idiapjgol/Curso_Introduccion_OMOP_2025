@@ -14,7 +14,7 @@ Resultados Estudio:
 * 9:15 - 10:15h - Introducción a diseños de estudios con datos de la vida real - Self controled case series, Cohorts, Target Trial Emulation
 * 10:15 - 10:45h – Importancia de RWD para guiar esfuerzos en el ámbito regulador: Ejemplo de DARWIN-EU
 * 10:45 - 11:15h - Pausa (desayuno)
-* 11:15 - 12h - Rol de Inteligencia Artificial en estudios con datos de la vida real
+* 11:15 - 12:00h - Rol de Inteligencia Artificial en estudios con datos de la vida real
 * 12:00 -12:30- Quiero trabajar con datos OMOP: ¿Por dónde empiezo?
-* 12:30 - 13:00h - Cierre y feedback
-* 13:00 - 14:00h - Pausa (comida)
+* 12:30 - 13:30h - Cierre y feedback
+* 13:30 - 14:00h - Pausa (comida)
