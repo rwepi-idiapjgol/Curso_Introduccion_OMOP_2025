@@ -53,4 +53,3 @@ COVID-19
 * 11:15 - 12:00h - Rol de Inteligencia Artificial en estudios con datos de la vida real
 * 12:00 -12:30- Quiero trabajar con datos OMOP: ¿Por dónde empiezo?
 * 12:30 - 13:30h - Cierre y feedback
-* 13:30 - 14:00h - Pausa (comida)
