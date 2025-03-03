@@ -31,7 +31,7 @@ Contacto:
 * 12:45 - 13:30h - Cálculo de incidencia y prevalencia
 * 13:30 - 14:30h - Pausa (comida)
 * 14:30 - 16:00h - *Práctica* - Cálculo de incidencia y prevalencia
-* 16:00 - 17:00h – Ejemplos estudios de caracterización, incidencia y prevalencia.
+* 16:00 - 17:00h – Ejemplos estudios de caracterización, incidencia y prevalencia
 
 ## DIA 3
 * 9:00 - 9:15h – Repaso del día anterior
