@@ -16,5 +16,5 @@ Resultados CohortDiagnostics: https://idiapjgol-rwepi.shinyapps.io/CursOMOP_Diag
 * 11:15 – 13:30h – *Práctica* - Estudio de uso de fármacos
 * 13:30- 14:30h - Pausa (Comida)  
 * 14:30- 15:15h – Análisis de supervivencia
-* 15:15- 16:00h – *Práctica* - Análisis de supervivencia
-* 16:00 - 17:00h - Del ejemplo práctico a la vida real
+* 15:15- 16:30h – *Práctica* - Análisis de supervivencia
+* 16:30 - 17:00h - Del ejemplo práctico a la vida real
