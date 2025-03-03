@@ -8,7 +8,6 @@ Contacto:
 * Irene López - ilopez@idiapjgol.org
 * Elena Roel - eroel@idiapjgol.org
 * Agustina Giuliodori - agiuliodori@idiapjgol.org
-* Andrea Pistillo - apistillo@idiapjgol.org
 
 ## DIA 1
 * 9:00 - 9:30h - Presentación del curso
