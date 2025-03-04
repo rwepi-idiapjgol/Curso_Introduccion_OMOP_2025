@@ -18,8 +18,8 @@ Contacto:
 * 12:00 - 12:30h - Phenotyping: Herramientas OMOP para definir problemas de salud I
 * 12:30 - 13:30h - *Práctica* - Phenotyping
 * 13:30 - 14:30h - Pausa (comida)
-* 14:30 - 15:00h – Introducción a R
-* 15:00 - 17:00h - *Pràctica* - Conceptos básicos para trabajar con datos OMOP
+* 14:30 - 15:00h – Introducción al bloque práctico
+* 15:00 - 17:00h - *Pràctica* - Iniciación a la práctica en OMOP
 
 ## DIA 2
 * 9:00 - 9:15h – Repaso del día anterior
