@@ -19,22 +19,22 @@ Contacto:
 * 12:30 - 13:30h - *Práctica* - Phenotyping
 * 13:30 - 14:30h - Pausa (comida)
 * 14:30 - 15:00h – Introducción al bloque práctico
-* 15:00 - 17:00h - *Pràctica* - Iniciación a la práctica en OMOP
+* 15:00 - 17:00h - *Práctica* - Iniciación bloque práctico OMOP
 
 ## DIA 2
 * 9:00 - 9:15h – Repaso del día anterior
 * 9:15 - 10:15h - Phenotyping: Herramientas OMOP para definir problemas de salud II - CodelistGenerator
 * 10:15 - 10:45h - Phenotyping: Herramientas OMOP para definir problemas de salud II - CohortDiagnostics
 * 10:45 - 11:15h - Pausa (desayuno)
-* 11:15 - 12:00h - Caracteritzación de pacientes
-* 12:00 - 13:30h - *Práctica* - Caracteritzación de pacientes
+* 11:15 - 12:00h - Caracterización de pacientes
+* 12:00 - 13:30h - *Práctica* - Caracterización de pacientes
 * 13:30 - 14:30h - Pausa (comida)
 * 14:30 - 15:15h - Cálculo de incidencia y prevalencia
 * 15:15 - 17:00h – *Práctica* - Cálculo de incidencia y prevalencia
 
 ## DIA 3
 * 9:00 - 9:15h – Repaso del día anterior
-* 9:15 - 10:00h - Phenotyping: Herramientas OMOP para definir uso de fármacos
+* 9:15 - 10:00h - Phenotyping: Herramientas OMOP para definir uso de fármacos - DrugExposureDiagnostics
 * 10:00 - 10:45h - Estudio de uso de fármacos
 * 10:45 - 11:15 - Pausa (desayuno)
 * 11:15 – 13:30h – *Práctica* - Estudio de uso de fármacos
@@ -45,9 +45,9 @@ Contacto:
 
 ## DIA 4
 * 9:00 - 9:15h - Repaso del día anterior
-* 9:15 - 10:15h - Introducción a diseños de estudios con datos de la vida real - Self controled case series, Cohorts, Target Trial Emulation
-* 10:15 - 10:45h – Importancia de RWD para guiar esfuerzos en el ámbito regulador: DARWIN-EU
+* 9:15 - 10:15h - Otras herramientas OMOP y diseños de estudios con datos de la vida real 
+* 10:15 - 10:45h – Estudios en red y por dónde empezar a trabajar con datos OMOP
 * 10:45 - 11:15h - Pausa (desayuno)
-* 11:15 - 12:00h - Rol de Inteligencia Artificial en estudios con datos de la vida real
-* 12:00 -12:30h- Quiero trabajar con datos OMOP: ¿Por dónde empiezo?
+* 11:15 - 12:00h - Importancia de RWD para guiar esfuerzos en el ámbito regulador: DARWIN-EU
+* 12:00 -12:30h - Rol de Inteligencia Artificial en estudios con datos de la vida real
 * 12:30 - 13:30h - Cierre y feedback
