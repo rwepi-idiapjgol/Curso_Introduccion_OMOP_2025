@@ -26,12 +26,11 @@ Contacto:
 * 9:15 - 10:15h - Phenotyping: Herramientas OMOP para definir problemas de salud II - CodelistGenerator
 * 10:15 - 10:45h - Phenotyping: Herramientas OMOP para definir problemas de salud II - CohortDiagnostics
 * 10:45 - 11:15h - Pausa (desayuno)
-* 11:15 - 11:45h - Caracteritzación de pacientes
-* 11:45 - 12:45h - *Práctica* - Caracteritzación de pacientes
-* 12:45 - 13:30h - Cálculo de incidencia y prevalencia
+* 11:15 - 12:00h - Caracteritzación de pacientes
+* 12:00 - 13:30h - *Práctica* - Caracteritzación de pacientes
 * 13:30 - 14:30h - Pausa (comida)
-* 14:30 - 16:00h - *Práctica* - Cálculo de incidencia y prevalencia
-* 16:00 - 17:00h – Ejemplos estudios de caracterización, incidencia y prevalencia
+* 14:30 - 15:15h - Cálculo de incidencia y prevalencia
+* 15:15 - 17:00h – *Práctica* - Cálculo de incidencia y prevalencia
 
 ## DIA 3
 * 9:00 - 9:15h – Repaso del día anterior
