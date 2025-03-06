@@ -16,10 +16,10 @@ Contacto:
 * 10:45 - 11:15h - Pausa (desayuno)
 * 11:15 - 12:00h - Mapeo de datos al modelo común de datos OMOP y controles de calidad
 * 12:00 - 12:30h - Phenotyping: Herramientas OMOP para definir problemas de salud I
-* 12:30 - 13:30h - *Práctica* - Phenotyping
+* 12:30 - 13:30h - *Práctica* - Introducción al bloque práctico y Phenotyping
 * 13:30 - 14:30h - Pausa (comida)
-* 14:30 - 15:00h – Introducción al bloque práctico
-* 15:00 - 17:00h - *Práctica* - Iniciación bloque práctico OMOP
+* 14:30 - 15:00h – Introducción al uso de OMOP en R 
+* 15:00 - 17:00h - *Práctica* - Introducción al uso de OMOP en R 
 
 ## DIA 2
 * 9:00 - 9:15h – Repaso del día anterior
