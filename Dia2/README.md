@@ -5,7 +5,7 @@ Descargáis esta carpeta en formato .zip a vuestro ordenador y guardadla al dire
 
 ***Es muy importante que NO MODIFIQUÉIS NI La ESTRUCTURA NI LOS NOMBRES DE LAS CARPETAS y que sigáis las instrucciones que os daremos.***
 
-Resultados CohortDiagnostics:
+Ejemplo CohortDiagnostics: https://data.ohdsi.org/Covid19CharacterizationCharybdisDiagCovid/
 
 ## Dia 2 (11 de Marzo 2025)
 * 9:00 - 9:15h – Repaso del día anterior
