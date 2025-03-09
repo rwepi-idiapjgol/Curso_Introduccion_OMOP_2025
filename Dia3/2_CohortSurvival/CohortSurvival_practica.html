@@ -3134,47 +3134,11 @@ vertical-align: -.125em;
 <section id="ejercicios" class="level2">
 <h2 class="anchored" data-anchor-id="ejercicios">Ejercicios</h2>
 <p>En esta práctica usaremos librerías muy similares a las que hemos usado en las prácticas anteriores, y añadiremos el paquete CohortSurvival. Para instalarlo, deberás ejecutar:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;CohortSurvival&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(duckdb)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(CDMConnector)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbplyr)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(PatientProfiles)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(IncidencePrevalence)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(CohortSurvival)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <p>Para poder hacer los ejercicios, hará falta que os conectéis a la base de datos sintética “<em>synthea-</em>covid19-10k”. Para facilitar el desarrollo de la práctica, os detallamos el código que necesitáis ejecutar para conectaros y generar las tablas con las cohortes de COVID-19:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbConnect</span>(duckdb<span class="sc">::</span><span class="fu">duckdb</span>(), <span class="fu">eunomiaDir</span>(<span class="st">&quot;synthea-covid19-10k&quot;</span>))</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>cdm <span class="ot">&lt;-</span> <span class="fu">cdmFromCon</span>(con,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">cdmSchema=</span><span class="st">&quot;main&quot;</span>, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">writeSchema=</span><span class="st">&quot;main&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <p>Además, para hacer esta práctica necesitaremos la cohorte de diagnósticos COVID-19 con la cual hemos estado trabajando. A continuación, se muestra el código para instanciar la tabla con los cohortes COVID-19.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;5_CohortSurvival&quot;</span>, <span class="st">&quot;2_CDMConnector/Cohortes&quot;</span>, <span class="fu">here</span>())</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>json_files <span class="ot">&lt;-</span> <span class="fu">readCohortSet</span>(path)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>table_stem <span class="ot">&lt;-</span> <span class="st">&quot;curso_omop_&quot;</span> </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>table_name <span class="ot">&lt;-</span> <span class="fu">paste0</span>(table_stem, <span class="st">&quot;covid&quot;</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Instanciamos la cohorte en la base de datos</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>cdm <span class="ot">&lt;-</span> <span class="fu">generateCohortSet</span>(cdm, </span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                         json_files,</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                         <span class="at">name =</span> table_name,</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                         <span class="at">computeAttrition =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                         <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <p>Con el código anterior habéis vuelto a crear una tabla que contiene las diferentes definiciones que usaremos para definir la infección por COVID-19.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">settings</span>(cdm<span class="sc">$</span>curso_omop_covid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">settings</span>(cdm<span class="sc">$</span>curso_omop_covid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   cohort_definition_id cohort_name                    
@@ -3327,8 +3291,8 @@ Mejorar la representación
 </section>
 <section id="ejercicio-2" class="level3">
 <h3 class="anchored" data-anchor-id="ejercicio-2">Ejercicio 2</h3>
-<section id="a-realiza-el-análisis-de-supervivencia-anterior-estratificado-por-sexo-y-resume-los-resultados-en-una-tabla.-representa-el-resultado-en-un-gráfico." class="level5">
-<h5 class="anchored" data-anchor-id="a-realiza-el-análisis-de-supervivencia-anterior-estratificado-por-sexo-y-resume-los-resultados-en-una-tabla.-representa-el-resultado-en-un-gráfico.">a) Realiza el análisis de supervivencia anterior estratificado por sexo y resume los resultados en una tabla. Representa el resultado en un gráfico.</h5>
+<section id="a-realiza-el-análisis-de-supervivencia-anterior-estratificado-por-sexo-y-edad-65-años-65-años.-representa-el-resultado." class="level5">
+<h5 class="anchored" data-anchor-id="a-realiza-el-análisis-de-supervivencia-anterior-estratificado-por-sexo-y-edad-65-años-65-años.-representa-el-resultado.">a) Realiza el análisis de supervivencia anterior estratificado por sexo y edad (&lt;65 años, ≥65 años). Representa el resultado.</h5>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -3351,13 +3315,13 @@ Recordatorio
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Pista - estimar supervivencia
+Pista OMOP
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Puedes utilitzar <code>addSex()</code> del paquete PatientProfiles para añadir una columna con el sexo en la cohorte creado en el Ejercicio 1a). Para realizar el análisis estratificado, puedes utilizar el argumento <code>strata</code> de la función <code>estimateSingleEventSurvival</code>.</p>
+<p>Puedes utilitzar <code>addSex() y addAge()</code> del paquete PatientProfiles para añadir una columna con el sexo y otra con la edad en la cohorte creada en el Ejercicio 1a). Para realizar el análisis estratificado, puedes utilizar el argumento <code>strata</code> de la función <code>estimateSingleEventSurival</code>.</p>
 </div>
 </div>
 </div>
@@ -3367,49 +3331,32 @@ Pista - estimar supervivencia
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Pista - resumir datos de supervivencia
+Pista - Representación
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Para resumir los resultados de supervivencia recuerda la función <code>tableSurvival().</code></p>
+<p>Cuando se utiliza la opción strata tenemos “strata_name” y “strata_level”. El primero sería, por ejemplo, “sex”, y el segundo seria “male” o “female” según si el valor pertenece al análisis hecho en hombres o mujeres. También, tenemos los valores “overall” tanto por strata_name como por strata_level, que representan el análisis sin ninguna estratificación. Puedes utilizar “strata_name” en las opciones facet y/o colour de la función plotSurvival para hacer la representación.</p>
 </div>
 </div>
 </div>
+</section>
+<section id="b-cuál-es-la-supervivencia-de-las-mujeres-mayores-de-65-años-al-cabo-de-un-mes-y-de-un-año" class="level5">
+<h5 class="anchored" data-anchor-id="b-cuál-es-la-supervivencia-de-las-mujeres-mayores-de-65-años-al-cabo-de-un-mes-y-de-un-año">b) ¿Cuál es la supervivencia de las mujeres mayores de 65 años al cabo de un mes? ¿Y de un año?</h5>
 <div class="callout callout-style-simple callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Pista - representación
+Pista OMOP
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Cuando se utiliza la opción strata tenemos “strata_name” y “strata_level”. El primero sería, por ejemplo, “sex”, y el segundo seria “male” o “female” según si el valor pertenece al análisis hecho en hombres o mujeres. También, tenemos los valores “Overall” tanto por strata_name como por strata_level, que representan el análisis sin ninguna estratificación. Puedes utilizar “strata_name” en las opciones facet y/o colour de la función plotSurvival para hacer la representación.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="b-estratifica-ahora-por-sexo-y-grupos-de-edad-por-separado-y-junto-y-representa-el-resultado-en-un-gráfico." class="level5">
-<h5 class="anchored" data-anchor-id="b-estratifica-ahora-por-sexo-y-grupos-de-edad-por-separado-y-junto-y-representa-el-resultado-en-un-gráfico.">b) Estratifica ahora por sexo y grupos de edad, por separado y junto, y representa el resultado en un gráfico.</h5>
-<p>Los grupos de edad son 1) menores de 65 años, y 2) personas de 65 años o más.</p>
-<div class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Pista - Representación
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Plantea como puedes utilizar las columnas “<em>strata_name</em>” y “<em>strata_level</em>” del resultado de survival, y las opciones “<em>facet</em>” y “<em>colour</em>” de la función <code>plotSurvival</code> para hacer la representación.</p>
+<p>Para resumir los resultados de supervivencia recuerda la función <code>tableSurvial()</code> y sus atributos</p>
 </div>
 </div>
 </div>
@@ -3421,7 +3368,7 @@ Pista - Representación
 <section id="a-crea-la-cohorte-de-muerte-bajo-el-nombre-death_cohort" class="level5">
 <h5 class="anchored" data-anchor-id="a-crea-la-cohorte-de-muerte-bajo-el-nombre-death_cohort">a) Crea la cohorte de muerte bajo el nombre “death_cohort”</h5>
 <div class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -3430,7 +3377,7 @@ Pista - Crear cohorte de muerte
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Usa la función <code>generateDeathCohortSet()</code> .</p>
 </div>
@@ -3443,7 +3390,7 @@ Pista - Crear cohorte de muerte
 <section id="c-estima-la-supervivencia-estratificando-por-sexo-y-representa-el-resultado-en-un-gráfico." class="level5">
 <h5 class="anchored" data-anchor-id="c-estima-la-supervivencia-estratificando-por-sexo-y-representa-el-resultado-en-un-gráfico.">c) Estima la supervivencia, estratificando por sexo, y representa el resultado en un gráfico.</h5>
 <div class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -3452,14 +3399,14 @@ Pista - Estimar competing risk
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Usa la función <code>estimateCompetingRiskSurvival</code>.</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -3468,14 +3415,14 @@ Pista - Función para hacer el gráfico
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Usa la función <code>plotSurvival</code> indicando <code>cummulativeFailure=TRUE</code></p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -3484,14 +3431,14 @@ A tener en cuenta - Representación <em>outcomes</em>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Recuerda al hacer el gráfico, la tabla resultante de <code>estimateCompetingRiskSurvival</code> contiene las estimaciones de la incidencia acumulada por cada uno de los outcomes y estratificaciones.</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -3500,7 +3447,7 @@ Pista - Representación <em>outcomes</em>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Aparte de tener en cuenta las estratificaciones (“<em>strata_name</em>” y “<em>strata_level</em>”), habrá que tener en cuenta que estamos representando dos outcomes (CIF de infección y muerte), por lo tanto, también se tendrán que diferenciar, ya sea en color o facet. Visualiza la tabla con los resultados de supervivencia para saber qué columna contiene esta información.</p>
 </div>
@@ -3514,7 +3461,7 @@ Pista - Representación <em>outcomes</em>
 <section id="a-cuantas-personas-tubieron-una-infección-por-sars-cov-2-y-cuantas-tuvieron-el-acontecimiento-competitivo-de-muerte" class="level5">
 <h5 class="anchored" data-anchor-id="a-cuantas-personas-tubieron-una-infección-por-sars-cov-2-y-cuantas-tuvieron-el-acontecimiento-competitivo-de-muerte">a) ¿Cuantas personas tubieron una infección por SARS-CoV-2 y cuantas tuvieron el acontecimiento competitivo de muerte?</h5>
 <div class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -3523,14 +3470,14 @@ Pista - OMOP
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Hay una función de un paquete que hemos visto durante el curso que nos permitirá resolver este ejercicio.</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -3539,7 +3486,7 @@ Continuación Pista OMOP
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Usa la función <code>addCompetingRiskCohortSurvival().</code></p>
 <p>Recuerda que la función añade dos columnas a la cohorte, una de “time” y otra de “status. Esta última indica con 1 los pacientes que tuvieron el evento de interés, 2 el evento competitivo, y con 0 los que no tuvieron el evento o fueron censurados.</p>
