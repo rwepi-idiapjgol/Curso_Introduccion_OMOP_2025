@@ -9,19 +9,19 @@ Contacto:
 * Elena Roel - eroel@idiapjgol.org
 * Agustina Giuliodori - agiuliodori@idiapjgol.org
 
-## DIA 1
+## DÍA 1
 * 9:00 - 9:30h - Presentación del curso
 * 9:30 - 10:15h - Introducción a los datos del mundo real y al modelo común de datos OMOP
 * 10:15 - 10:45h – Importancia de RWD para guiar esfuerzos en salud pública: Ejemplo de la COVID-19
 * 10:45 - 11:15h - Pausa (desayuno)
 * 11:15 - 12:00h - Mapeo de datos al modelo común de datos OMOP y controles de calidad
 * 12:00 - 12:30h - Phenotyping: Herramientas OMOP para definir problemas de salud I
-* 12:30 - 13:30h - *Práctica* - Phenotyping
+* 12:30 - 13:30h - *Práctica* - Introducción al bloque práctico y Phenotyping
 * 13:30 - 14:30h - Pausa (comida)
-* 14:30 - 15:00h – Introducción al bloque práctico
-* 15:00 - 17:00h - *Práctica* - Iniciación bloque práctico OMOP
+* 14:30 - 15:00h – Introducción al uso de OMOP en R 
+* 15:00 - 17:00h - *Práctica* - Introducción al uso de OMOP en R 
 
-## DIA 2
+## DÍA 2
 * 9:00 - 9:15h – Repaso del día anterior
 * 9:15 - 10:15h - Phenotyping: Herramientas OMOP para definir problemas de salud II - CodelistGenerator
 * 10:15 - 10:45h - Phenotyping: Herramientas OMOP para definir problemas de salud II - CohortDiagnostics
@@ -32,7 +32,7 @@ Contacto:
 * 14:30 - 15:15h - Cálculo de incidencia y prevalencia
 * 15:15 - 17:00h – *Práctica* - Cálculo de incidencia y prevalencia
 
-## DIA 3
+## DÍA 3
 * 9:00 - 9:15h – Repaso del día anterior
 * 9:15 - 10:00h - Phenotyping: Herramientas OMOP para definir uso de fármacos - DrugExposureDiagnostics
 * 10:00 - 10:45h - Estudio de uso de fármacos
@@ -43,7 +43,7 @@ Contacto:
 * 15:15- 16:30h – *Práctica* - Análisis de supervivencia
 * 16:30 - 17:00h - Del ejemplo práctico a la vida real
 
-## DIA 4
+## DÍA 4
 * 9:00 - 9:15h - Repaso del día anterior
 * 9:15 - 10:15h - Otras herramientas OMOP y diseños de estudios con datos de la vida real 
 * 10:15 - 10:45h – Estudios en red y por dónde empezar a trabajar con datos OMOP
