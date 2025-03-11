@@ -3134,11 +3134,47 @@ vertical-align: -.125em;
 <section id="ejercicios" class="level2">
 <h2 class="anchored" data-anchor-id="ejercicios">Ejercicios</h2>
 <p>En esta práctica usaremos librerías muy similares a las que hemos usado en las prácticas anteriores, y añadiremos el paquete CohortSurvival. Para instalarlo, deberás ejecutar:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Por el momento, tenemos que instalar CohortSurvival desde el repositorio de GitHub. Para ello, necesitarás tener el paquete &quot;devtools&quot; instalado. Una vez instalado, puedes usar la siguiente línea de código:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># devtools::install_github(&quot;darwin-eu/CohortSurvival&quot;)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(duckdb)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(CDMConnector)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbplyr)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(PatientProfiles)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(IncidencePrevalence)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(CohortSurvival)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Para poder hacer los ejercicios, hará falta que os conectéis a la base de datos sintética “<em>synthea-</em>covid19-10k”. Para facilitar el desarrollo de la práctica, os detallamos el código que necesitáis ejecutar para conectaros y generar las tablas con las cohortes de COVID-19:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbConnect</span>(duckdb<span class="sc">::</span><span class="fu">duckdb</span>(), <span class="fu">eunomiaDir</span>(<span class="st">&quot;synthea-covid19-10k&quot;</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>cdm <span class="ot">&lt;-</span> <span class="fu">cdmFromCon</span>(con,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">cdmSchema=</span><span class="st">&quot;main&quot;</span>, </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">writeSchema=</span><span class="st">&quot;main&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Además, para hacer esta práctica necesitaremos la cohorte de diagnósticos COVID-19 con la cual hemos estado trabajando. A continuación, se muestra el código para instanciar la tabla con los cohortes COVID-19.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>json_files <span class="ot">&lt;-</span> <span class="fu">readCohortSet</span>(<span class="fu">here</span>(<span class="st">&quot;Cohortes&quot;</span>))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>table_stem <span class="ot">&lt;-</span> <span class="st">&quot;curso_omop_&quot;</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>table_name <span class="ot">&lt;-</span> <span class="fu">paste0</span>(table_stem, <span class="st">&quot;covid&quot;</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Instanciamos la cohorte en la base de datos</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>cdm <span class="ot">&lt;-</span> <span class="fu">generateCohortSet</span>(cdm, </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                         json_files,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                         <span class="at">name =</span> table_name,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                         <span class="at">computeAttrition =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                         <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Con el código anterior habéis vuelto a crear una tabla que contiene las diferentes definiciones que usaremos para definir la infección por COVID-19.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">settings</span>(cdm<span class="sc">$</span>curso_omop_covid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">settings</span>(cdm<span class="sc">$</span>curso_omop_covid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   cohort_definition_id cohort_name                    
@@ -3291,6 +3327,7 @@ Mejorar la representación
 </section>
 <section id="ejercicio-2" class="level3">
 <h3 class="anchored" data-anchor-id="ejercicio-2">Ejercicio 2</h3>
+<p>En esta segunda actividad queremos estimar la supervivencia de COVID-19 haciendo estratificaciones y queremos saber estimaciones de supervivencia para ciertos puntos temporales.</p>
 <section id="a-realiza-el-análisis-de-supervivencia-anterior-estratificado-por-sexo-y-edad-65-años-65-años.-representa-el-resultado." class="level5">
 <h5 class="anchored" data-anchor-id="a-realiza-el-análisis-de-supervivencia-anterior-estratificado-por-sexo-y-edad-65-años-65-años.-representa-el-resultado.">a) Realiza el análisis de supervivencia anterior estratificado por sexo y edad (&lt;65 años, ≥65 años). Representa el resultado.</h5>
 <div class="callout callout-style-simple callout-note callout-titled">
@@ -3364,7 +3401,7 @@ Pista OMOP
 </section>
 <section id="ejercicio-3" class="level3">
 <h3 class="anchored" data-anchor-id="ejercicio-3">Ejercicio 3</h3>
-<p>En este ejercicio, queremos repetir el análisis anterior, pero teniendo en cuenta la muerte como un acontecimiento competitivo de la infección por SARS-CoV-2.</p>
+<p>En este ejercicio, queremos repetir el análisis anterior, pero teniendo en cuenta la muerte como un acontecimiento <u>competitivo</u> de la infección por SARS-CoV-2.</p>
 <section id="a-crea-la-cohorte-de-muerte-bajo-el-nombre-death_cohort" class="level5">
 <h5 class="anchored" data-anchor-id="a-crea-la-cohorte-de-muerte-bajo-el-nombre-death_cohort">a) Crea la cohorte de muerte bajo el nombre “death_cohort”</h5>
 <div class="callout callout-style-simple callout-tip callout-titled">
@@ -3457,7 +3494,7 @@ Pista - Representación <em>outcomes</em>
 </section>
 <section id="ejercicio-4" class="level3">
 <h3 class="anchored" data-anchor-id="ejercicio-4">Ejercicio 4</h3>
-<p>En este ejercicio, queremos añadir a la propia tabla de la población de estudio información sobre supervivencia.</p>
+<p>En este ejercicio, queremos añadir a la propia cohorte de la población de estudio información sobre supervivencia.</p>
 <section id="a-cuantas-personas-tubieron-una-infección-por-sars-cov-2-y-cuantas-tuvieron-el-acontecimiento-competitivo-de-muerte" class="level5">
 <h5 class="anchored" data-anchor-id="a-cuantas-personas-tubieron-una-infección-por-sars-cov-2-y-cuantas-tuvieron-el-acontecimiento-competitivo-de-muerte">a) ¿Cuantas personas tubieron una infección por SARS-CoV-2 y cuantas tuvieron el acontecimiento competitivo de muerte?</h5>
 <div class="callout callout-style-simple callout-tip callout-titled">
