@@ -10,7 +10,7 @@ Ejemplo shiny Treatment Patterns y Análisis de Supervivencia: https://data-dev.
 
 ## Dia 4 (13 de Marzo 2025)
 * 9:00 - 9:15h - Repaso del día anterior
-* 9:15 - 10:15h - Introducción a diseños de estudios con datos de la vida real - Self controled case series, Cohorts, Target Trial Emulation
+* 9:15 - 10:15h - Herramientas OMOP para estudios epidemiológicos de estimación: CohortMethod
 * 10:15 - 10:45h – Importancia de RWD para guiar esfuerzos en el ámbito regulador: DARWIN-EU
 * 10:45 - 11:15h - Pausa (desayuno)
 * 11:15 - 12:00h - Rol de Inteligencia Artificial en estudios con datos de la vida real
