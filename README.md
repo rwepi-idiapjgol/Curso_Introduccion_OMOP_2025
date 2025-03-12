@@ -8,6 +8,7 @@ Contacto:
 * Irene López - ilopez@idiapjgol.org
 * Elena Roel - eroel@idiapjgol.org
 * Agustina Giuliodori - agiuliodori@idiapjgol.org
+* Marti Catala - marti.catalasabate@ndorms.ox.ac.uk
 
 ## DÍA 1
 * 9:00 - 9:30h - Presentación del curso
