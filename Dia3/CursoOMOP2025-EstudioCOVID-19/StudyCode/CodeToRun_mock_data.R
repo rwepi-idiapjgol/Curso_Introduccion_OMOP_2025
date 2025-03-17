@@ -1,3 +1,6 @@
+renv::activate()
+renv::restore()
+
 # Paquets
 library(DBI)
 library(CDMConnector)

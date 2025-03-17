@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.2.2",
+    "Version": "4.4.0",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -768,9 +768,9 @@
     },
     "httpuv": {
       "Package": "httpuv",
-      "Version": "1.6.12",
+      "Version": "1.6.15",
       "Source": "Repository",
-      "Repository": "CRAN",
+      "Repository": "RSPM",
       "Requirements": [
         "R",
         "R6",
@@ -779,7 +779,7 @@
         "promises",
         "utils"
       ],
-      "Hash": "c992f75861325961c29a188b45e549f7"
+      "Hash": "d55aa087c47a63ead0f6fc10f8fa1ee0"
     },
     "httr": {
       "Package": "httr",
